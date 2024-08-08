@@ -1,0 +1,202 @@
+#CUBE CODE#
+#Import Plot Module and use Function to make data on cubic numbers#
+from matplotlib import pyplot as plt
+num = list(range(5001))
+cubenum = [x**3 for x in num]
+
+#Plot Creation with some Customizing#
+plt.scatter(num, cubenum, edgecolor='black', c=cubenum, cmap=plt.cm.BuGn, s=40)
+
+#Plot Customization#
+plt.title("Cube", fontsize=24)
+plt.xlabel('Number', fontsize=14)
+plt.ylabel('Cube of Number', fontsize=14)
+plt.tick_params(axis='both', labelsize=14)
+plt.axis([0, 5100, 0, 5100**3])
+
+#Display Plot#
+plt.show()
+
+
+##DIE CODE##
+#import random integer function and initialize the die with sides set to 6 by default. we need randint to return a number between 1 and the sides provided "6"#
+from random import randit
+
+class Die():
+  def __init__(self, sides=6):
+      self.sides = sides
+
+  def roll_die(self):
+    return randint(1, self.sides)
+
+#Create a die, append the results to an empty list then show them#
+d6 = die()
+results = []
+for roll_num in range(10):
+    result = d6.roll_die()
+    results.append(result)
+print(results)
+
+
+##USER CODE##
+class User():
+#Initialize a user, get some basic info, make a greeting, show how many attempts were made at logins#
+    def __init__(self, first_name, last_name, email,):
+        self.first_name = first_name.title()
+        self.last_name = last_name.title()
+        self.email = email
+        self.login_attempts = 0
+
+    def describe_user(self):
+        print("\n" + self.first_name + " " + self.last_name)
+        print("  Email: " + self.email)
+
+    def greet_user(self):
+        print("Welcome back, " + self.first_name + "!")
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+#reset logged login attempts#
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+class Admin(User):
+    #Create an admin#
+    def __init__(self, first_name, last_name, email,):
+        super().__init__(first_name, last_name, email,)
+        self.privileges = privileges()
+        
+class privileges():
+    #Show Admin privileges#
+    def __init__(self, privileges=[]):
+        self.privileges = [] #Start with empty list of privileges#
+
+    def show_privilege(self):
+        print('privileges: ')
+        for privilege in self.privileges:
+            print(privilege)
+
+
+Mayra = Admin('Mayra', 'Ortega', 'mortega@gmail.com')
+Mayra.describe_user() #Display user info#
+
+Mayra.privileges.privileges = ['can edit', 'can ban', 'can modify', 'can can'] #add privs to user#
+
+Mayra.privileges.show_privilege() #show the privs#
+
+
+#RESTAURANT CODE##
+#Initilize a Restaurant with the following variables, show restaurant's specialty, show an open message, show how many were served and increment function to that number#
+class Restaurant():
+    def __init__(self, name, cuisine_type):
+        self.name = name.title()
+        self.cuisine_type = cuisine_type
+        self.customers_serviced = 0
+
+    def describe_restaurant(self):
+        msg = "At " + self.name + " we provide deliicous " + self.cuisine_type + "."
+        print("\n" + msg)
+
+    def open_restaurant(self):
+        msg = self.name + " is open for business."
+        print("\n" + msg)
+
+    def set_number_served(self, customers_serviced):
+        self.customers_serviced = customers_serviced
+
+    def increment_number_served(self, additional_served):
+        self.customers_serviced += additional_served
+
+class IceCreamStand(Restaurant):
+#Initialize an ice cream shop and get their flavors available#
+    def __init__(self, name, cuisine_type):
+        super().__init__(name, cuisine_type)
+        self.flavors = []
+
+    def show_flavors(self):
+        print("These flavors on our menu:")
+        for flavor in self.flavors:
+            print(flavor.title())
+
+#Info on the store, the flavors available and they're put into a list#
+The_Scoop = IceCreamStand('The Scoop', 'Ice Cream')
+The_Scoop.flavors = ['Rocky Road', 'Vanilla', 'Coffee']
+
+#display the summary message of the shop and the flavors available#
+The_Scoop.describe_restaurant()
+The_Scoop.show_flavors()
+
+
+##TUPLE MAKER##
+#Import choice from random module, get values and create an empty 'winner' list that shows lottery tickets that win#
+from random import choice
+values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'a', 'b', 'c', 'd', 'e']
+winner = []
+#print the message 'the winners are: ' and have it show the randomly selected values#
+print('The Winners Are: ')
+while len(winner) < 4: #this is here to ensure we don't get repeating numbers/tickets#
+    rangen not in winner:
+        print((rangen))
+        winner.append(rangen)
+
+
+##What I learned in Python Code##
+#Code to print text from a file in different ways#
+file = 'learning_python.txt'
+
+#Read the whole File:
+with open(file) as f:
+    contents = f.read()
+print(contents)
+
+#Loop method of viewing text
+with open(file) as f:
+    for line in f:
+        print(line.rstrip())
+
+#List Method
+with open(file) as f:
+    lines = f.readlines()
+
+for line in lines:
+    print(line.rstrip())
+
+#Replace Method
+with open(file) as f:
+    lines = f.readlines()
+
+for line in lines:
+    line = line.rstrip()
+    print(line.replace('Python', 'PHP'))
+
+#Earthquake Graph#
+#import geopandas for using coordinate data, import matplotlib for graphing, import geodatasets for mapping#
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import geodatasets
+
+#geopandas gets data from a file#
+world = gpd.read_file('all_month.geojson')
+#Plot from the data received#
+world.plot()
+
+#Show the plot#
+plt.show()
+
+#World Fires Code#
+#pandas import for reading data off .csv, geopandas for getting coordinate data from file, matplotlib for plotting#
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+#pandas get data from a file#
+fire_data = pd.read_csv('MODIS_C6_1_Global_24h.csv')
+print(fire_data)
+
+#Geopandas uses the file and creates coordinate data for it to plot#
+fire_shp = gpd.GeoDataFrame(fire_data, crs = 'EPSG:4326', geometry = gpd.points_from_xy(fire_data['longitude'], fire_data['latitude']))
+
+#create a plot with the data stored and customize it a little#
+fig,ax = plt.subplots(1, figsize = (6,4))
+fire_shp.plot(ax=ax, color = 'red')
+plt.show()
