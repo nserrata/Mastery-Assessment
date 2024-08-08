@@ -1,0 +1,17 @@
+listed is the code I made and what it does:
+
+Cube Code = takes 5000 cubic numbers and plots them onto a graph.
+
+Die Code = creates a die class with default value for sides to simulate the rolling of a d6 die and displays the results on a list.
+
+User Code = Code that shows info on a user including login attempts. It uses an admin class that inherits from the user class previously mentioned. It also contains a class called 'privileges' that shows the admins privilieges that are listed.
+
+Restaurant Code = Code that uses inheritance for the ice-cream class it uses. it displays info for the class and displays data from a list for said class.
+
+Tuple Code = This code takes tuple data, has the random module choose a specific combination of data from the list we provide then displays it as a 'winning ticket'. 
+
+What I Learned in Python Code = this code takes a text file installed locally on the computer and has it opened in the python interpretter and displayed on the terminal in multiple ways.
+
+Earthquake Code = the purpose of this code is to take GeoJSON data, download it, and make a plot of the coordinate data and display a visualization of it
+
+Fire Data Code = The purpose of this code is similar to the previous code however .csv data is used rather than GeoJSON data.
